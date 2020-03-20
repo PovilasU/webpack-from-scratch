@@ -10,12 +10,25 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Output Management',
+      // inject: false,
+      // template: require('html-webpack-template'),
+      hash: true,
+      title: 'Test',
+      myPageHeader: 'Hello World',
+      template: './src/index.html',
+      filename: 'index.html', //relative to root of the application
       favicon: './src/img/favicon.ico',
       meta: {
         viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no'
       },
-      minify: true
+      minify: {
+        collapseWhitespace: true,
+        removeComments: true,
+        removeRedundantAttributes: true,
+        removeScriptTypeAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        useShortDoctype: true
+      }
     })
   ],
   output: {
