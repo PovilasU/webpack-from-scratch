@@ -5,8 +5,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   mode: 'development',
   entry: {
-    app: './src/index.js',
-    print: './src/print.js'
+    app: './src/index.js'
   },
   devtool: 'cheap-module-eval-source-map',
   devServer: {
@@ -16,8 +15,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       hash: true,
-      title: 'Test',
-      myPageHeader: 'Hello World',
+      title: 'Basci React App',
       template: './src/index.html',
       filename: 'index.html', //relative to root of the application
       favicon: './src/img/favicon.ico',
