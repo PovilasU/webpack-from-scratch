@@ -10,9 +10,9 @@ module.exports = {
   entry: {
     app: './src/index.js'
   },
-  devtool: 'cheap-module-eval-source-map',
-  devServer: {
-    contentBase: './dist'
+  output: {
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist')
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -27,15 +27,13 @@ module.exports = {
         removeRedundantAttributes: true,
         removeScriptTypeAttributes: true,
         removeStyleLinkTypeAttributes: true,
-        useShortDoctype: true
+        useShortDoctype: true,
+        removeAttributeQuotes: true
       }
     }),
     new CopyPlugin([{ from: 'src/robots.txt', to: 'robots.txt' }])
   ],
-  output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist')
-  },
+
   module: {
     rules: [
       {
