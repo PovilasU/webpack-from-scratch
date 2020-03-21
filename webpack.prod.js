@@ -9,6 +9,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
   .BundleAnalyzerPlugin;
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = merge(common, {
   mode: 'production',
@@ -20,12 +21,18 @@ module.exports = merge(common, {
 
   plugins: [
     //  new BundleAnalyzerPlugin(),
+    new CompressionPlugin({
+      filename: '[path].gz[query]',
+      algorithm: 'gzip',
+      test: /\.js$|\.css$|\.html$/,
+      threshold: 10240,
+      minRatio: 0.8
+    }),
     new OptimizeCssAssetsPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name].[contentHash].css'
     }),
     new CleanWebpackPlugin(),
-
     new CopyPlugin([{ from: 'src/robots.txt', to: 'robots.txt' }])
   ],
 
