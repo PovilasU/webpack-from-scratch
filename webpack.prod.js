@@ -13,7 +13,7 @@ module.exports = merge(common, {
   mode: 'production',
   // devtool: 'source-map',
   output: {
-    filename: '[name].[contentHash].js',
+    filename: '[name].[contentHash].bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
 
