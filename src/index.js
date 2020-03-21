@@ -2,26 +2,33 @@ import _ from 'lodash';
 import './style.css';
 import Icon from './icon.png';
 import printMe from './print.js';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './styles/styles.scss';
 
-function component() {
-  const element = document.createElement('div');
-  const btn = document.createElement('button');
+const template = <p>Hello from react</p>;
 
-  // Lodash, currently included via a script, is required for this line to work
-  element.innerHTML = _.join(['Hello', 'webpack!'], ' ');
-  element.classList.add('hello');
+ReactDOM.render(template, document.getElementById('root'));
 
-  btn.innerHTML = 'Click me and check the console!';
-  btn.onclick = printMe;
-  element.appendChild(btn);
+// function component() {
+//   const element = document.createElement('div');
+//   const btn = document.createElement('button');
 
-  // Add the image to our existing div.
-  const myIcon = new Image();
-  //   myIcon.src = Icon;
+//   // Lodash, currently included via a script, is required for this line to work
+//   element.innerHTML = _.join(['Hello', 'webpack!'], ' ');
+//   element.classList.add('hello');
 
-  element.appendChild(myIcon);
+//   btn.innerHTML = 'Click me and check the console!';
+//   btn.onclick = printMe;
+//   element.appendChild(btn);
 
-  return element;
-}
+//   // Add the image to our existing div.
+//   const myIcon = new Image();
+//   //   myIcon.src = Icon;
 
-document.body.appendChild(component());
+//   element.appendChild(myIcon);
+
+//   return element;
+// }
+
+// document.body.appendChild(component());
