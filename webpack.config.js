@@ -28,7 +28,7 @@ module.exports = {
         useShortDoctype: true
       }
     }),
-    new CopyPlugin([{ from: 'src/robots.txt', to: 'dest' }])
+    new CopyPlugin([{ from: 'src/robots.txt', to: 'robots.txt' }])
   ],
   output: {
     filename: '[name].bundle.js',
