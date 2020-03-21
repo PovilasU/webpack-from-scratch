@@ -20,9 +20,6 @@ module.exports = {
       template: './src/index.html',
       filename: 'index.html', //relative to root of the application
       favicon: './src/img/favicon.ico',
-      meta: {
-        viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no'
-      },
       minify: {
         collapseWhitespace: true,
         removeComments: true,
