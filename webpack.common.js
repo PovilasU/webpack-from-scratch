@@ -1,7 +1,8 @@
 const path = require('path');
 module.exports = {
   entry: {
-    app: './src/index.js'
+    app: './src/index.js',
+    vendor: './src/vendor.js'
   },
   module: {
     rules: [
