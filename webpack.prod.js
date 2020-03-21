@@ -16,12 +16,12 @@ module.exports = {
     app: './src/index.js'
   },
   output: {
-    filename: '[name].bundle.js',
+    filename: 'main.[contentHash].js',
     path: path.resolve(__dirname, 'dist')
   },
 
   plugins: [
-    new BundleAnalyzerPlugin(),
+    //  new BundleAnalyzerPlugin(),
     new MiniCssExtractPlugin(),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
@@ -50,7 +50,11 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        use: ['file-loader']
+        use: [
+          {
+            loader: 'file-loader'
+          }
+        ]
       },
       {
         test: /\.js$/,
