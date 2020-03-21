@@ -25,21 +25,7 @@ module.exports = merge(common, {
       filename: '[name].[contentHash].css'
     }),
     new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      hash: true,
-      template: './src/template.html',
-      filename: 'index.html', //relative to root of the application
-      favicon: './src/img/favicon.ico',
-      minify: {
-        collapseWhitespace: true,
-        removeComments: true,
-        removeRedundantAttributes: true,
-        removeScriptTypeAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        useShortDoctype: true,
-        removeAttributeQuotes: true
-      }
-    }),
+
     new CopyPlugin([{ from: 'src/robots.txt', to: 'robots.txt' }])
   ],
 
@@ -53,6 +39,25 @@ module.exports = merge(common, {
   },
   optimization: {
     minimize: true,
-    minimizer: [new TerserPlugin(), new OptimizeCssAssetsPlugin()]
+    minimizer: [
+      new TerserPlugin(),
+      new OptimizeCssAssetsPlugin(),
+      new HtmlWebpackPlugin({
+        hash: true,
+        template: './src/template.html',
+        filename: 'index.html', //relative to root of the application
+        favicon: './src/img/favicon.ico',
+        minify: {
+          collapseWhitespace: true,
+          removeAttributeQuotes: true,
+          removeComments: true,
+          removeRedundantAttributes: true,
+          removeScriptTypeAttributes: true,
+          removeStyleLinkTypeAttributes: true,
+          useShortDoctype: true,
+          removeAttributeQuotes: true
+        }
+      })
+    ]
   }
 });
