@@ -9,12 +9,9 @@ const TerserPlugin = require('terser-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
   .BundleAnalyzerPlugin;
 
-module.exports = {
+module.exports = merge(common, {
   mode: 'production',
   // devtool: 'source-map',
-  entry: {
-    app: './src/index.js'
-  },
   output: {
     filename: 'main.[contentHash].js',
     path: path.resolve(__dirname, 'dist')
@@ -47,20 +44,6 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
-      },
-      {
-        test: /\.(png|svg|jpg|gif)$/,
-        use: [
-          {
-            loader: 'file-loader'
-          }
-        ]
-      },
-      {
-        test: /\.js$/,
-        // exclude: /node_modules/,
-        include: path.resolve(__dirname, 'src'),
-        loader: 'babel-loader'
       }
     ]
   },
@@ -68,4 +51,4 @@ module.exports = {
     minimize: true,
     minimizer: [new TerserPlugin()]
   }
-};
+});
