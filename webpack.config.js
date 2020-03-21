@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const RobotstxtPlugin = require('robotstxt-webpack-plugin');
 
 module.exports = {
   //   mode: 'development',
@@ -30,7 +31,8 @@ module.exports = {
         removeStyleLinkTypeAttributes: true,
         useShortDoctype: true
       }
-    })
+    }),
+    new RobotstxtPlugin(options)
   ],
   output: {
     filename: '[name].bundle.js',
