@@ -13,6 +13,13 @@ module.exports = {
         test: /\.js$/,
         include: path.resolve(__dirname, 'src'),
         loader: 'babel-loader'
+      },
+      {
+        test: /\.html$/i,
+        loader: 'html-loader',
+        options: {
+          minimize: true
+        }
       }
     ]
   }

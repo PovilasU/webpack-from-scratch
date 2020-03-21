@@ -26,7 +26,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       hash: true,
-      template: './src/index.html',
+      template: './src/template.html',
       filename: 'index.html', //relative to root of the application
       favicon: './src/img/favicon.ico',
       minify: {

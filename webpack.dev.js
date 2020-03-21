@@ -18,20 +18,16 @@ module.exports = merge(common, {
   devServer: {
     contentBase: './dist'
   },
-  plugins: [
-    new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      hash: true,
-      template: './src/index.html',
-      filename: 'index.html', //relative to root of the application
-      favicon: './src/img/favicon.ico'
-    })
-  ],
+
   module: {
     rules: [
       {
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
+        use: [
+          'style-loader', //3. Inject styles into DOM
+          'css-loader', //2. Turns css into commonjs
+          'sass-loader' //1. Turns sass into css
+        ]
       }
     ]
   }
