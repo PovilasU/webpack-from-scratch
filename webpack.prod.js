@@ -19,7 +19,9 @@ module.exports = merge(common, {
 
   plugins: [
     //  new BundleAnalyzerPlugin(),
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: '[name].[contentHash].css'
+    }),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       hash: true,
