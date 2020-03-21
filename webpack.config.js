@@ -31,8 +31,7 @@ module.exports = {
         removeStyleLinkTypeAttributes: true,
         useShortDoctype: true
       }
-    }),
-    new RobotstxtPlugin(options)
+    })
   ],
   output: {
     filename: '[name].bundle.js',
