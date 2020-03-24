@@ -47,7 +47,5 @@ function App() {
     </BrowserRouter>
   );
 }
-
-export default App;
-
 serviceWorker.register();
+export default App;
