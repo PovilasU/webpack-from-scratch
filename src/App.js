@@ -1,8 +1,15 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+// import { Provider } from 'react-redux';
 import About from './components/About';
 import Home from './components/Home';
 import Blog from './components/Blog';
+
+// export  const Root = () => (
+//   <Router>
+//     <Route path="/" component={App} />
+//   </Router>
+// );
 
 export default function App() {
   return (
@@ -25,10 +32,10 @@ export default function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/about" component={About}>
+          <Route exact path="/about" component={About}>
             {/* <About /> */}
           </Route>
-          <Route path="/blog" component={Blog}>
+          <Route exact path="/blog" component={Blog}>
             {/* <Users /> */}
           </Route>
           <Route exact path="/" component={Home}>
