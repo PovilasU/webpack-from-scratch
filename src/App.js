@@ -48,28 +48,6 @@ function App() {
   );
 }
 
-serviceWorker.register();
-
 export default App;
 
-// const Routes = () => {
-//   return (
-//     <Router>
-//       <NavigationBar />
-//       <Switch>
-//         <Route path="/" exact component={Home} />
-//         <Route path="/home" component={Home} />
-//         <Route path="/about" component={About} />
-//         <Route path="/gallery" component={Galllery} />
-//         <Route path="/gallery2" component={Galllery2} />
-//         <Route path="/gallery3" component={Galllery3} />
-//         <Route path="/gallery4" component={Galllery4} />
-//         <Route
-//           path="/exampledynamiccolumns"
-//           component={ExampleDynamicColumns}
-//         />
-//       </Switch>
-//     </Router>
-//   );
-// };
-// export default Routes;
+serviceWorker.register();
