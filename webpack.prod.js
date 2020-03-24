@@ -41,7 +41,7 @@ module.exports = merge(common, {
     new CleanWebpackPlugin(),
     new CopyPlugin([
       { from: 'src/robots.txt', to: 'robots.txt' },
-      { from: 'src/serviceWorker.js', to: 'service-worker.js' },
+      { from: 'src/service-worker.js', to: 'service-worker.js' },
       { from: 'src/manifest.json', to: 'manifest.json' }
     ])
   ],
