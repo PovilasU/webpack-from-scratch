@@ -34,7 +34,10 @@ module.exports = merge(common, {
       filename: '[name].[contentHash].css'
     }),
     new CleanWebpackPlugin(),
-    new CopyPlugin([{ from: 'src/robots.txt', to: 'robots.txt' }])
+    new CopyPlugin([
+      { from: 'src/robots.txt', to: 'robots.txt' },
+      { from: 'src/serviceWorker.js', to: 'serviceWorker.js' }
+    ])
   ],
 
   module: {
@@ -62,8 +65,7 @@ module.exports = merge(common, {
           removeRedundantAttributes: true,
           removeScriptTypeAttributes: true,
           removeStyleLinkTypeAttributes: true,
-          useShortDoctype: true,
-          removeAttributeQuotes: true
+          useShortDoctype: true
         }
       })
     ]
