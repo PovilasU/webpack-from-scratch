@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import * as serviceWorker from './serviceWorker';
 // import { Provider } from 'react-redux';
 import About from './components/About';
 import Home from './components/Home';
@@ -11,7 +12,7 @@ import Blog from './components/Blog';
 //   </Router>
 // );
 
-export default function App() {
+function App() {
   return (
     <BrowserRouter>
       <div>
@@ -46,6 +47,10 @@ export default function App() {
     </BrowserRouter>
   );
 }
+
+serviceWorker.register();
+
+export default App;
 
 // const Routes = () => {
 //   return (
