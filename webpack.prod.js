@@ -10,7 +10,9 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
   .BundleAnalyzerPlugin;
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
-// const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
+const { GenerateSW } = require('workbox-webpack-plugin');
+const { InjectManifest } = require('workbox-webpack-plugin');
 
 module.exports = merge(common, {
   mode: 'production',
@@ -26,6 +28,11 @@ module.exports = merge(common, {
     //   swSrc: './src/serviceWorker.js',
     //   swDest: 'sw.js'
     // }),
+    new GenerateSW(),
+    // new InjectManifest({
+    //   swSrc: './src/serviceWorker.js'
+    // }),
+
     new CompressionPlugin({
       filename: '[path].gz[query]',
       algorithm: 'gzip',
@@ -41,8 +48,8 @@ module.exports = merge(common, {
     new CleanWebpackPlugin(),
     new CopyPlugin([
       { from: 'src/robots.txt', to: 'robots.txt' },
-      { from: 'src/service-worker.js', to: 'service-worker.js' },
-      { from: 'src/manifest.json', to: 'manifest.json' }
+      { from: 'src/service-worker.js', to: 'service-worker.js' }
+      // { from: 'src/manifest.json', to: 'manifest.json' }
     ])
   ],
 
