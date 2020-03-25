@@ -47,8 +47,8 @@ module.exports = merge(common, {
     }),
     new CleanWebpackPlugin(),
     new CopyPlugin([
-      { from: 'src/robots.txt', to: 'robots.txt' },
-      { from: 'src/service-worker.js', to: 'service-worker.js' }
+      { from: 'src/robots.txt', to: 'robots.txt' }
+      // { from: 'src/service-worker.js', to: 'service-worker.js' }
       // { from: 'src/manifest.json', to: 'manifest.json' }
     ])
   ],
@@ -70,7 +70,7 @@ module.exports = merge(common, {
         hash: true,
         template: './src/template.html',
         filename: 'index.html', //relative to root of the application
-        favicon: './src/img/favicon.ico',
+        favicon: './src/images/favicon.ico',
         minify: {
           collapseWhitespace: true,
           removeAttributeQuotes: true,

@@ -1,16 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
-// import { Provider } from 'react-redux';
+
 import About from './components/About';
 import Home from './components/Home';
 import Blog from './components/Blog';
-
-// export  const Root = () => (
-//   <Router>
-//     <Route path="/" component={App} />
-//   </Router>
-// );
 
 function App() {
   return (
@@ -33,15 +27,9 @@ function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route exact path="/about" component={About}>
-            {/* <About /> */}
-          </Route>
-          <Route exact path="/blog" component={Blog}>
-            {/* <Users /> */}
-          </Route>
-          <Route exact path="/" component={Home}>
-            {/* <Home /> */}
-          </Route>
+          <Route path="/about" component={About} />
+          <Route path="/blog" component={Blog} />
+          <Route exact path="/" component={Home} />
         </Switch>
       </div>
     </BrowserRouter>
