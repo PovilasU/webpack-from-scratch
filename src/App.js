@@ -5,6 +5,7 @@ import * as serviceWorker from './serviceWorker';
 import About from './components/About';
 import Home from './components/Home';
 import Blog from './components/Blog';
+import CodeSplitting from './components/CodeSplitting';
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
             <li>
               <Link to="/blog">Blog</Link>
             </li>
+            <li>
+              <Link to="/codeplitting">CodeSplitting</Link>
+            </li>
           </ul>
         </nav>
 
@@ -29,6 +33,7 @@ function App() {
         <Switch>
           <Route path="/about" component={About} />
           <Route path="/blog" component={Blog} />
+          <Route path="/codeplitting" component={CodeSplitting} />
           <Route exact path="/" component={Home} />
         </Switch>
       </div>
